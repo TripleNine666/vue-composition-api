@@ -1,14 +1,21 @@
 <template>
   <section class="container">
-    <h2>{{ userName }}</h2>
+    <h2>{{ user.userName }}</h2>
+    <h3>{{ user.age }}</h3>
   </section>
 </template>
 
 <script setup>
-import { ref } from "vue";
-const userName = ref("Maximilian");
+import { reactive } from "vue";
+// const userName = ref("Maximilian"); // ref for all kind of data: number, string, onject. user.value.userName = "Kirill";
+// const age = ref(32);
+const user = reactive({
+  userName: "Maximilian",
+  age: 32,
+}); // reactive for onject only and. user.userName = "Kirill";
 setTimeout(function () {
-  userName.value = "Kirill";
+  user.userName = "Kirill";
+  user.age = 20;
 }, 2000);
 
 // return { userName: name };
